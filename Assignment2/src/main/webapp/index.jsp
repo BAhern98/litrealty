@@ -3,10 +3,15 @@
     Created on : 18 Oct 2019, 11:37:54
     Author     : Brendan
 --%>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,14 +20,14 @@
     <body>
 
 
-        <table width='1200' border='1'>
+        <table id="table_id" width='1200' border='1'>
 
             <tr>
                 <th>ID</th>
                 <th>Street</th>
                 <th>City</th>              
                 <th>Price</th>
-                <th>Type</th>
+              
                 <th>Image</th>
                 <th>View</th>
                 <th>Edit</th>
