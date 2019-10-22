@@ -22,7 +22,7 @@
                 <th>Street</th>
                 <th>City</th>              
                 <th>Price</th>
-                <th>Type</th>
+
                 <th>Image</th>
                 <th>View</th>
                 <th>Edit</th>
