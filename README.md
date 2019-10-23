@@ -5,3 +5,4 @@ Week 1
 display properties working, 
 display images, 
 datatable style working
+error page
