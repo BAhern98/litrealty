@@ -52,7 +52,7 @@
                         <td>${aProperty.id}</td>
                         <td>${aProperty.street}</td>
                         <td>${aProperty.city}</td>
-                        <td>${aProperty.price}</td>
+                          <td><fmt:formatNumber value="${aProperty.price}" type="currency" currencySymbol="&euro;" maxFractionDigits="2"/> </td>
                         <td><img src="images/properties/thumbs/${aProperty.photo}"></td>
                         <td><a href="ViewProperty?id=${aProperty.id}">View</a></td>
                         <td><a href="EditProperty?id=${aProperty.id}">Edit</a></td>
