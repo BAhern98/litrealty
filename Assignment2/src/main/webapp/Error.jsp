@@ -1,9 +1,9 @@
 
 
 <HTML>
-<HEAD> <TITLE>ERROR!</TITLE></HEAD>
+    <HEAD> <TITLE>ERROR!</TITLE></HEAD>
 
-<BODY>
-    Opps, something has gone wrong.
-</BODY>
+    <BODY>
+        Opps, something has gone wrong.
+    </BODY>
 </HTML>

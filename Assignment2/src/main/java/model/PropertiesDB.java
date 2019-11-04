@@ -8,6 +8,7 @@ package model;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 
@@ -34,7 +35,49 @@ public class PropertiesDB {
         return list;
       
     }
-   
+        public static Properties getPropertyByID(Integer id) {
+        EntityManager em = DBUtil.getEMF().createEntityManager();
+        Properties property = null;
+        try {
+            String q = "SELECT p FROM Properties p WHERE p.id = " + id;
+            TypedQuery<Properties> tq = em.createQuery(q, Properties.class);
+            property = tq.getSingleResult();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            em.clear();
+        }
+        return property;
+    }
+//          public static Properties archiveProperty(String id) {
+//        EntityManager em = DBUtil.getEMF().createEntityManager();
+//        Properties property = null;
+//        try {
+//            String q = "SELECT p FROM Properties p WHERE p.id = " + id;
+//            TypedQuery<Properties> tq = em.createQuery(q, Properties.class);
+//            property = tq.getSingleResult();
+//        } catch (Exception ex) {
+//            System.out.println(ex);
+//        } finally {
+//            em.clear();
+//        }
+//        return property;
+//    }
+    
+   public static void insertProperty(Properties p) {
+        EntityManager em = DBUtil.getEMF().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+
+        try {
+            trans.begin();
+            em.persist(p);
+            trans.commit();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            em.close();
+        }
+    }
 
   
     
