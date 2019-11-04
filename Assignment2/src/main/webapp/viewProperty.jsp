@@ -79,7 +79,7 @@
                         <p>${property.street}, ${property.city}</p>
                         <h3>Listing Number</h3>
                         <p>${property.listingNum}</p>
-                        <h3>Bedrooms</h3>
+                        <h3>Bedrooms & Bathrooms</h3>
                         <p>${property.bedrooms} Bedrooms & ${property.bathrooms} Bathrooms</p>
                         <h3>Property Area</h3>
                         <p>${property.squarefeet}ft² total space - ${property.lotsize} lot & ${property.garagesize} garage</p>
