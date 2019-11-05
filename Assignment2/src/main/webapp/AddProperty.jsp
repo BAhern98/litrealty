@@ -3,8 +3,18 @@
     Created on : 1 Nov 2019, 10:43:26
     Author     : Brendan
 --%>
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,8 +22,40 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="contact-form">
-            <form action="addProperty" method="post">
+        <nav class="navbar" style="background: #2F4F4F;">
+
+            <a class="navbarWebTitle" style="color: white;"><h2>LIT Realty</h2></a>
+
+            <ul class="navbar-nav">
+                <li class="active"><a href="#" style="color: white;">Properties</a></li>
+                    <shiro:guest>
+
+                    <li><a href="favourites.jsp" style="color: white;">Favourites</a></li>
+
+                    <li><a href="Login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Agent Login</a></li>
+                    </shiro:guest>
+                    <shiro:user>
+                    <li><a href="/LIT_Realty/logout" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </shiro:user>
+                    <shiro:user>
+                    <div class="profile">
+                        <p>Logged in as: <shiro:principal/></p>
+                        <img src="images/agents/1.jpg" height="100" width="100" alt="photo"/>
+                        <br>
+                    </div>
+                </shiro:user>
+            </ul>
+        </div>
+    </nav>
+         <div class="row">
+        </div>
+        <div class="col-md-3">
+        </div>
+        <div class="contact-form" >
+            <div class="goBack">
+                        <a style="text-align: left;"href="javascript:history.back()">Go Back</a>
+                    </div>
+             <form action="addProperty" method="post">
                 <div class="form-group">
                     Street Address: <input type="text"  class="form-control" name="street" id="contact-name" placeholder="Street Address">
                 </div>
@@ -39,6 +81,28 @@
                 <div class="form-group">
                     SQ. Feet: <input type="number" class="form-control" name="squarefeet" id="contact-number" placeholder="SQ Feet">
                 </div>
+<!--                  <div class="row">
+                    <div class="form-group">
+                        <div class="col-12 col-md-12 col-lg-12">
+                            BER Rating
+                            <select class="form-control" name="ber">
+                                <option value="1">A1</option>
+                                <option value="2">A2</option>
+                                <option value="3">A3</option>
+                                <option value="4">B1</option>
+                                <option value="5">B2</option>
+                                <option value="6">B3</option>
+                                <option value="7">C1</option>
+                                <option value="8">C2</option>
+                                <option value="9">C3</option>
+                                <option value="10">D1</option>
+                                <option value="11">D2</option>
+                                <option value="12">F</option>
+                                <option value="13">G</option>
+                            </select>
+                        </div>
+                    </div>--->
+     
                 <div class="form-group">
                     BER Rating: <input type="text" class="form-control" name="ber" id="contact-name" placeholder="BER Rating">
                 </div>
@@ -97,9 +161,10 @@
                 <div class="form-group">
                     <button type="submit" class="btn south-btn">Save Details</button>
                 </div>
-
+        </div>
             </form>
         </div>
-
+        <div class="col-md-3">
+        </div>
     </body>
 </html>

@@ -51,6 +51,9 @@
                 </ul>
         </div>
     </nav>
+            <div class="goBack">
+                        <a style="text-align: left;"href="javascript:history.back()">Go Back</a>
+                    </div>
 
     <table id="propertydatatable" class ="display" width='1200' border='1'>
         <thead>
@@ -61,7 +64,7 @@
                 <th>Street</th>
                 <th>City</th>              
                 <th>Price</th>
-
+                    <th>Ber Rating</th>
                 <th>Image</th>
                     <shiro:user>
                     <th>Edit</th>
@@ -82,6 +85,7 @@
                     <td>${aProperty.street}</td>
                     <td>${aProperty.city}</td>
                     <td><fmt:formatNumber value="${aProperty.price}" type="currency" currencySymbol="&euro;" maxFractionDigits="2"/></td>
+                         <td><img src="images/BER/${aProperty.berRating}.png"/></td>
                     <td><a href="displayProperty?propertyId=${aProperty.id}"><img src="images/properties/thumbs/${aProperty.photo}"></td>
                             <shiro:user>
                                 <td><a href="EditProperty?id=${aProperty.id}">Edit</a></td>

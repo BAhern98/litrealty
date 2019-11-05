@@ -27,7 +27,7 @@
     <body>
         <nav class="navbar" style="background: #2F4F4F;">
 
-            <a class="navbarWebTitle" style="color: white;">LIT Realty</a>
+            <a class="navbarWebTitle" style="color: white;"><h2>LIT Realty</h2></a>
 
             <ul class="navbar-nav">
                 <li class="active"><a href="#" style="color: white;">Properties</a></li>
@@ -50,8 +50,11 @@
             </ul>
         </div>
     </nav>
-    <div class ="bg-opacity">
-        <div class="bg">
+    <div >
+        <div>
+            <div class="goBack">
+                        <a style="text-align: left;"href="javascript:history.back()">Go Back</a>
+                    </div>
             <div >
 
 

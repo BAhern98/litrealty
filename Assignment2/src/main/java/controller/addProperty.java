@@ -39,6 +39,11 @@ public class addProperty extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        //            HttpSession session = request.getSession();
+//            Agents agent = (Agents) session.getAttribute("loginAgent");
+//            Integer agentID = agent.getAgentId();
+
+
             String street = request.getParameter("street");
             String description = request.getParameter("description");
             String listingnum = request.getParameter("listingnum");
@@ -56,13 +61,11 @@ public class addProperty extends HttpServlet {
             String propertyid = request.getParameter("propertyid");
             
             
-//            HttpSession session = request.getSession();
-//            Agents agent = (Agents) session.getAttribute("loginAgent");
-            //Integer agentID = agent.getAgentId();
+
             
             Properties p = new Properties();
             p.setId(0);
-          //  p.setAgentId(agentID);
+//           p.setAgentId(agentID);
             p.setStreet(street);
             p.setCity(city);
             p.setListingNum(Integer.valueOf(listingnum));
@@ -76,7 +79,6 @@ public class addProperty extends HttpServlet {
             p.setLotsize(lotsize);
             p.setGaragesize(Short.valueOf(garagesize));
             p.setGarageId(Integer.valueOf(garagetype));
-           
             p.setPrice(Double.valueOf(price));
             Date d = new Date();
 
