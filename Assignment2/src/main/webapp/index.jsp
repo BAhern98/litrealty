@@ -44,7 +44,7 @@
                         <shiro:user>
                         <div class="profile">
                             <p>Logged in as: <shiro:principal/></p>
-                            <img src="images/agents/1.jpg" height="100" width="100" alt="photo"/>
+                            <img class="agent-icon" src="images/agents/${agentId}.jpg"/>
                             <br>
                         </div>
                     </shiro:user>
@@ -89,7 +89,7 @@
                     <td><a href="displayProperty?propertyId=${aProperty.id}"><img src="images/properties/thumbs/${aProperty.photo}"></td>
                             <shiro:user>
                                 <td><a href="EditProperty?id=${aProperty.id}">Edit</a></td>
-                                <td><a href="DeleteProperty?id=${aProperty.id}">Delete</a></td>
+                                <td><a href="deleteProperty?propertyId=${aProperty.id}">Delete</a></td>
                             </shiro:user>
                 </tr>
 

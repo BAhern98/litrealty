@@ -55,6 +55,7 @@
             <div class="goBack">
                         <a style="text-align: left;"href="javascript:history.back()">Go Back</a>
                     </div>
+            <div>
              <form action="addProperty" method="post">
                 <div class="form-group">
                     Street Address: <input type="text"  class="form-control" name="street" id="contact-name" placeholder="Street Address">
@@ -81,7 +82,7 @@
                 <div class="form-group">
                     SQ. Feet: <input type="number" class="form-control" name="squarefeet" id="contact-number" placeholder="SQ Feet">
                 </div>
-<!--                  <div class="row">
+                  <div class="row">
                     <div class="form-group">
                         <div class="col-12 col-md-12 col-lg-12">
                             BER Rating
@@ -101,11 +102,10 @@
                                 <option value="13">G</option>
                             </select>
                         </div>
-                    </div>--->
+                    </div>
+                  </div>
      
-                <div class="form-group">
-                    BER Rating: <input type="text" class="form-control" name="ber" id="contact-name" placeholder="BER Rating">
-                </div>
+               
                 <div class="form-group">
                     Lot Size: <input type="text" class="form-control" name="lotsize" id="contact-name" placeholder="Lot Size">
                 </div>
@@ -158,10 +158,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
+               
                     <button type="submit" class="btn south-btn">Save Details</button>
-                </div>
-        </div>
+     
             </form>
         </div>
         <div class="col-md-3">

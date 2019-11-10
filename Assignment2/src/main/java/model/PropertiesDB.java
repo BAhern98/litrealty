@@ -78,7 +78,20 @@ public class PropertiesDB {
             em.close();
         }
     }
+public static void archiveProperty(Integer id) {
+        EntityManager em = DBUtil.getEMF().createEntityManager();
 
+
+        try {
+            String q = "INSERT INTO archive SELECT * FROM properties WHERE p.id = " + id + "DELETE FROM properties where p.id="+ id;
+            TypedQuery<Properties> tq = em.createQuery(q, Properties.class);
+            tq.executeUpdate();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            em.clear();
+        }
+    }
   
     
 }
