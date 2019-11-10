@@ -67,7 +67,7 @@
                         <img src="images/properties/large/${property.listingNum}/${property.listingNum}-5.jpg"/>
                         <img src="images/properties/large/${property.listingNum}/${property.listingNum}-6.jpg"/>
                         <img src="images/properties/large/${property.listingNum}/${property.listingNum}-7.jpg"/>
-                    s
+                    
                     </div></center>
 
 
@@ -99,5 +99,31 @@
 
         </div>
     </div>
+                        
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYz_he365YHCZs07jVGnL2dBY-wC5YixE&callback=initMap"></script>
+<script>
+var map;
+function initialize() {
+    
+  var options = {
+    zoom: 8,
+    center: new google.maps.LatLng(-34.397, 150.644)
+  };
+  var map = new
+       google.maps.Map(document.getElementById('map'),options);
+
+var marker = new google.maps.Marker({position :{ lat:-34, lng: 151},map:map});
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<center>
+ <div id="map" style="height:300px; width:500px"></div>
+</center>
+</html>
+
 </body>
 </html>
