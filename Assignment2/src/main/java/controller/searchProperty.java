@@ -8,24 +8,21 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Agents;
-import model.AgentsDB;
 import model.Properties;
 import model.PropertiesDB;
 
 /**
  *
- * @author k00203657
+ * @author Brendan
  */
-@WebServlet(name = "displayAll", urlPatterns = {"/displayAll"})
-public class displayAll extends HttpServlet {
+@WebServlet(name = "searchProperty", urlPatterns = {"/searchProperty"})
+public class searchProperty extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,32 +36,18 @@ public class displayAll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-     try ( PrintWriter out = response.getWriter()) {
-            String address;
-
-            try {
-
-                List<Properties> list = PropertiesDB.getAllProperties();
-
-                if (list == null || list.isEmpty()) {
-                    address = "/Error.jsp";
-                } else {
-
-                    address = "/index.jsp";
-                    request.setAttribute("list", list);
-                }
-                
-
-            }//end try
-            catch (Exception ex) {
-                address = "/Error.jsp";
-            }//end catch
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher(address);
-            dispatcher.forward(request, response);
+         try {
+            String city = request.getParameter("city");
+            String maxPrice = request.getParameter("maxPrice");
+            String minPrice = request.getParameter("minPrice");
+            List<Properties> list = PropertiesDB.searchProperty(city, maxPrice, minPrice);
+            request.setAttribute("list", list);
+        } catch (Exception ex) {
+            log("ERROR: " + ex);
         }
+        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+        rd.forward(request, response);
     }
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

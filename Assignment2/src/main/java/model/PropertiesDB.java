@@ -92,6 +92,29 @@ public static void archiveProperty(Integer id) {
             em.clear();
         }
     }
+ public static List<Properties> searchProperty(String city, String maxPrice,String minPrice) {
+        EntityManager em = DBUtil.getEMF().createEntityManager();
+
+        List<Properties> list = null;
+        try {
+            String q = "SELECT p FROM Properties p WHERE p.city = " + "'"+city+"'" + " AND p.price < " + maxPrice + " AND p.price > "+ minPrice;
+            
+            
+            TypedQuery<Properties> tq = em.createQuery(q, Properties.class);
+
+            list = tq.getResultList();
+
+            if (list == null || list.isEmpty()) {
+                list = null;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            em.clear();
+        }
+
+        return list;
+    }
   
     
 }
