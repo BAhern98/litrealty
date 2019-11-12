@@ -35,7 +35,7 @@ public class PropertiesDB {
         return list;
       
     }
-        public static Properties getPropertyByID(Integer id) {
+        public static Properties getPropertyByID(String id) {
         EntityManager em = DBUtil.getEMF().createEntityManager();
         Properties property = null;
         try {
@@ -78,12 +78,12 @@ public class PropertiesDB {
             em.close();
         }
     }
-public static void archiveProperty(Integer id) {
+public static void archiveProperty(String property) {
         EntityManager em = DBUtil.getEMF().createEntityManager();
 
 
         try {
-            String q = "INSERT INTO archive SELECT * FROM properties WHERE p.id = " + id + "DELETE FROM properties where p.id="+ id;
+            String q = "INSERT INTO archive SELECT * FROM properties WHERE p.id = " + property + "DELETE FROM properties where p.id="+ property;
             TypedQuery<Properties> tq = em.createQuery(q, Properties.class);
             tq.executeUpdate();
         } catch (Exception ex) {

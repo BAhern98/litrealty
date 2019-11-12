@@ -39,9 +39,9 @@ public class archiveProperty extends HttpServlet {
 //             property = Integer.parseInt(request.getParameter("propertyId"));
 //            Properties p= PropertiesDB.getPropertyByID(property);
 //            request.setAttribute("property", p);
-            int property = 0;
+  
             
-                  property = Integer.parseInt(request.getParameter("propertyId"));
+                 String property = request.getParameter("propertyId");
                          Properties p= PropertiesDB.getPropertyByID(property);
             request.setAttribute("property", p);
           
