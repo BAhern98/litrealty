@@ -15,6 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Agents;
+import model.AgentsDB;
 import model.Properties;
 import model.PropertiesDB;
 
@@ -51,6 +53,15 @@ public class displayAll extends HttpServlet {
                     address = "/index.jsp";
                     request.setAttribute("list", list);
                 }
+                 List<Agents> list1 = AgentsDB.getAllAgents();
+
+                if (list1 == null || list1.isEmpty()) {
+                    address = "/Error.jsp";
+                } else {
+
+                    address = "/index.jsp";
+                    request.setAttribute("list", list1);
+                }
 
             }//end try
             catch (Exception ex) {
@@ -61,6 +72,7 @@ public class displayAll extends HttpServlet {
             dispatcher.forward(request, response);
         }
     }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
