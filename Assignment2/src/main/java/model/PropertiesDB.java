@@ -83,7 +83,7 @@ public static void archiveProperty(String property) {
 
 
         try {
-            String q = "INSERT INTO archive SELECT * FROM properties WHERE p.id = " + property + "DELETE FROM properties where p.id="+ property;
+            String q = "INSERT INTO archive SELECT * FROM properties WHERE p.id = " + "'" +property +"'"+"DELETE FROM properties where p.id="+ "'" + property+"'";
             TypedQuery<Properties> tq = em.createQuery(q, Properties.class);
             tq.executeUpdate();
         } catch (Exception ex) {
