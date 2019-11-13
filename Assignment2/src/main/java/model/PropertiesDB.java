@@ -67,7 +67,12 @@ public class PropertiesDB {
    public static void insertProperty(Properties p) {
         EntityManager em = DBUtil.getEMF().createEntityManager();
         EntityTransaction trans = em.getTransaction();
-
+       System.out.println("\n\nadd a prop");
+       System.out.println(p.getCity());
+       System.out.println(p.getDescription());
+       System.out.println(p.getBerRating());
+       p.setBerRating("A1");
+        
         try {
             trans.begin();
             em.persist(p);
@@ -83,7 +88,8 @@ public static void archiveProperty(String property) {
 
 
         try {
-            String q = "INSERT INTO archive SELECT * FROM properties WHERE p.id = " + "'" +property +"'"+"DELETE FROM properties where p.id="+ "'" + property+"'";
+            //String q = "INSERT INTO archive SELECT * FROM properties WHERE p.id = " + "'" +property +"'"+"DELETE FROM properties where p.id="+ "'" + property+"'";
+            String q = "DELETE FROM properties where p.id="+ "'" + property+"'";
             TypedQuery<Properties> tq = em.createQuery(q, Properties.class);
             tq.executeUpdate();
         } catch (Exception ex) {

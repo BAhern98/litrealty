@@ -41,6 +41,9 @@ public class displayProperty extends HttpServlet {
            
             String property = request.getParameter("propertyId");
             Properties p= PropertiesDB.getPropertyByID(property);
+            if(p ==null){
+                
+            }
             request.setAttribute("property", p);
         } catch (Exception ex) {
             log("ERROR: " + ex);
