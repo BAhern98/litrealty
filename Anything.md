@@ -15,3 +15,8 @@
 <p>shows name of user logged in</p>
 <p>functions seperated between guest and customer  e.g add property</p>
 <p>bootstrap implimented</p>
+
+<h1>Week 3</h1>
+<p>Refine search working</p>
+<p>Add Working</p>
+<p>Delete alost working</p>
