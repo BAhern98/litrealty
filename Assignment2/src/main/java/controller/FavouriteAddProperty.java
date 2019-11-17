@@ -14,17 +14,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Agents;
-import model.AgentsDB;
-import model.Properties;
-import model.PropertiesDB;
 
 /**
  *
  * @author Brendan
  */
-@WebServlet(name = "displayProperty", urlPatterns = {"/displayProperty"})
-public class displayProperty extends HttpServlet {
+@WebServlet(name = "FavouriteAddProperty", urlPatterns = {"/FavouriteAddProperty"})
+public class FavouriteAddProperty extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,50 +30,45 @@ public class displayProperty extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */ protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String propertyId;
- try {
-         propertyId = request.getParameter("propertyId");
-         
-               
-            } catch (Exception ex) {
-                     RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
-            rd.forward(request, response);
-            }
-//    if(propertyId==null){
-//        RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
-//            rd.forward(request, response);
-//    }
+
+        String id = request.getParameter("propertyId");
+
         Cookie[] cookies = request.getCookies();
+        Cookie cookie = null;
 
-        boolean propertyInfavourites = false;
-
-        if (cookies != null) {
-            for (Cookie c : cookies) {
-                if (c.getName().equals("favourites")) {
-                    String[] ids = c.getValue().split("-", 0);
-                    for (String id : ids) {
-                        if (id.equals(propertyId)) {
-                            propertyInfavourites = true;
-                            break;
-                        }
-                    }
-                }
+        for (Cookie c : cookies) {
+            if (c.getName().equals("favourites")) {
+                cookie = c;
+                break;
             }
-
-            request.setAttribute("propertyInfavourites", propertyInfavourites);
-
-            try {
-                Properties property = PropertiesDB.getPropertyByID(propertyId);
-                request.setAttribute("property", property);
-            } catch (Exception ex) {
-                log("ERROR: " + ex);
-            }
-            RequestDispatcher rd = request.getRequestDispatcher("viewProperty.jsp");
-            rd.forward(request, response);
         }
+
+        String newCookie = "";
+
+        if (cookie == null) {
+            cookie = new Cookie("favourites", id);
+        } else if (cookie.getValue().isEmpty()) {
+            cookie.setValue(id);
+        } else if (!cookie.getValue().contains(id)) {
+            newCookie = cookie.getValue() + "-" + id;
+            if (newCookie.contains("--")) {
+                newCookie = newCookie.replace("--", "-");
+            }
+            cookie.setValue(newCookie);
+        }
+
+        request.setAttribute("propertyInfavourites", true);
+
+        cookie.setMaxAge(60 * 60 * 24 * 365 * 2);
+
+        response.addCookie(cookie);
+
+        RequestDispatcher rd = request.getRequestDispatcher("displayProperty");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

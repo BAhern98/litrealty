@@ -65,7 +65,7 @@ public class addProperty extends HttpServlet {
             
             Properties p = new Properties();
             p.setId(0);
-       p.setAgentId(0);
+            p.setAgentId(0);
             p.setStreet(street);
             p.setCity(city);
             p.setListingNum(Integer.valueOf(listingnum));

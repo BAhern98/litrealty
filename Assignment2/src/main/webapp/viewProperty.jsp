@@ -25,31 +25,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
     </head>
     <body>
-        <nav class="navbar" style="background: #2F4F4F;">
-
-            <a class="navbarWebTitle" style="color: white;"><h2>LIT Realty</h2></a>
-
-            <ul class="navbar-nav">
-                <li class="active"><a href="#" style="color: white;">Properties</a></li>
-                    <shiro:guest>
-
-                    <li><a href="favourites.jsp" style="color: white;">Favourites</a></li>
-
-                    <li><a href="Login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Agent Login</a></li>
-                    </shiro:guest>
-                    <shiro:user>
-                    <li><a href="/LIT_Realty/logout" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                    </shiro:user>
-                    <shiro:user>
-                    <div class="profile">
-                        <p>Logged in as: <shiro:principal/></p>
-                        <img src="images/agents/1.jpg" height="100" width="100" alt="photo"/>
-                        <br>
-                    </div>
-                </shiro:user>
-            </ul>
-        </div>
-    </nav>
+         <jsp:include page="/Header.jsp" />
     <div >
         <div>
             <div class="goBack">
@@ -91,19 +67,33 @@
                         <h3>Description</h3>
                         <p>${property.description}</p>
                         <h3>Price</h3>
-                        <p>${property.price}</p>
+                        
+                        <p><fmt:formatNumber value="${property.price}" type="currency" currencySymbol="&euro;" maxFractionDigits="2"/></p>
                         <h3>Available Since</h3>
                         <p>${property.dateAdded}</p>
-                        <p><button href="" name="">Add to Favourites</button></p>
+                             <c:choose>
+                            <c:when test="${!propertyInfavourites}">
+                            <div class="info">
+                                <form action="FavouriteAddProperty?propertyId=${property.id}" method="post">
+                                    <input type="Submit" value="Add to Favourites"/>
+                                </form>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="info">
+                                    <form action="FavouriteRemoveProperty?propertyId=${property.id}" method="post">
+                                        <input type="Submit" value="Delete from Favourites"/>
+                                    </form>
+                                </c:otherwise>
+                            </c:choose>
                     </div>
 
         </div>
     </div>
                         
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<iframe src="https://maps.google.com/maps?q=${property.getStreet()}+${property.getCity()}&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-
+<center>
+<iframe id ="map" src="https://maps.google.com/maps?q=${property.getStreet()}+${property.getCity()}&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</center>
 <center>
  <div id="map" style="height:300px; width:500px"></div>
 </center>

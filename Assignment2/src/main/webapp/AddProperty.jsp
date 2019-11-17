@@ -22,35 +22,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <nav class="navbar" style="background: #2F4F4F;">
-
-            <a class="navbarWebTitle" style="color: white;"><h2>LIT Realty</h2></a>
-
-            <ul class="navbar-nav">
-                <li class="active"><a href="#" style="color: white;">Properties</a></li>
-                    <shiro:guest>
-
-                    <li><a href="favourites.jsp" style="color: white;">Favourites</a></li>
-
-                    <li><a href="Login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Agent Login</a></li>
-                    </shiro:guest>
-                    <shiro:user>
-                    <li><a href="/LIT_Realty/logout" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                    </shiro:user>
-                    <shiro:user>
-                    <div class="profile">
-                        <p>Logged in as: <shiro:principal/></p>
-                        <img src="images/agents/1.jpg" height="100" width="100" alt="photo"/>
-                        <br>
-                    </div>
-                </shiro:user>
-            </ul>
-        </div>
-    </nav>
-         <div class="row">
-        </div>
-        <div class="col-md-3">
-        </div>
+         <jsp:include page="/Header.jsp" />
+        
         <div class="contact-form" >
             <div class="goBack">
                         <a style="text-align: left;"href="javascript:history.back()">Go Back</a>
