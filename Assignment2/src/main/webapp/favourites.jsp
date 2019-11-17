@@ -32,7 +32,7 @@
                         <a style="text-align: left;"href="javascript:history.back()">Go Back</a>
                     </div>
                
-                    <h2>  Favourites </h2>
+                    <center> <h2>  Favourites </h2></center>
 
                
 
@@ -69,7 +69,7 @@
                             </table>
                         </c:when>
                         <c:otherwise>
-                            <p>Favourite Properties you like to add them to this page<p>
+                           <center> <p>Favourite Properties you like to add them to this page<p></center>
                         </c:otherwise>
                     </c:choose>
                 </div>

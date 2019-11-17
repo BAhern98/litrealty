@@ -37,19 +37,12 @@ public class displayProperty extends HttpServlet {
      */ protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String propertyId;
- try {
-         propertyId = request.getParameter("propertyId");
-         
-               
-            } catch (Exception ex) {
-                     RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
-            rd.forward(request, response);
-            }
-//    if(propertyId==null){
-//        RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
+
+        String propertyId = request.getParameter("propertyId");
+//   if (propertyId == null && propertyId.isEmpty()) {
+//    RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
 //            rd.forward(request, response);
-//    }
+//}
         Cookie[] cookies = request.getCookies();
 
         boolean propertyInfavourites = false;
