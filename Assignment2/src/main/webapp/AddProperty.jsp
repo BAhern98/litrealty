@@ -31,35 +31,35 @@
             <div>
              <form action="addProperty" method="post">
                 <div class="form-group">
-                    Street Address: <input type="text"  class="form-control" name="street" id="contact-name" placeholder="Street Address">
+                    Street Address: <input type="text"  class="form-control" name="street" id="contact-name" placeholder="Street Address" required >
                 </div>
                 <div class="form-group">
-                    Description: <textarea style="height:80px" class="form-control" name="description" id="message" cols="30" rows="10" placeholder="Description">${property.description}</textarea>
+                    Description: <textarea style="height:80px" class="form-control" name="description" id="message" cols="30" rows="10" placeholder="Description"required>${property.description}</textarea>
                 </div>
                 <div class="form-group">
-                    City: <input type="text" class="form-control" name="city" id="contact-name" placeholder="City">
+                    City: <input type="text" class="form-control" name="city" id="contact-name" placeholder="City"required>
                 </div>
 
                 <div class="form-group">
-                    Price: <input type="number" class="form-control" name="price" id="contact-number" placeholder="Price">
+                    Price: <input type="number" class="form-control" name="price" id="contact-number" placeholder="Price"required>
                 </div>
                 <div class="form-group">
-                    Bedrooms: <input type="number" class="form-control" name="bedrooms" id="contact-number" placeholder="Bedrooms">
+                    Bedrooms: <input type="number" class="form-control" name="bedrooms" id="contact-number" placeholder="Bedrooms"required>
                 </div>
                 <div class="form-group">
-                    Bathrooms:<input type="number" class="form-control" name="bathrooms" id="contact-number" placeholder="Bathrooms">
+                    Bathrooms:<input type="number" class="form-control" name="bathrooms" id="contact-number" placeholder="Bathrooms"required>
                 </div>
                 <div class="form-group">
-                    Listing Number: <input type="number" class="form-control" name="listingnum" id="contact-number" placeholder="Listing Number">
+                    Listing Number: <input type="number" class="form-control" name="listingnum" id="contact-number" placeholder="Listing Number"required>
                 </div>
                 <div class="form-group">
-                    SQ. Feet: <input type="number" class="form-control" name="squarefeet" id="contact-number" placeholder="SQ Feet">
+                    SQ. Feet: <input type="number" class="form-control" name="squarefeet" id="contact-number" placeholder="SQ Feet"required>
                 </div>
                   <div class="row">
                     <div class="form-group">
                         <div class="col-12 col-md-12 col-lg-12">
                             BER Rating
-                            <select class="form-control" name="ber">
+                            <select class="form-control" name="berRating">
                                 <option value="1">A1</option>
                                 <option value="2">A2</option>
                                 <option value="3">A3</option>
@@ -80,10 +80,10 @@
      
                
                 <div class="form-group">
-                    Lot Size: <input type="text" class="form-control" name="lotsize" id="contact-name" placeholder="Lot Size">
+                    Lot Size: <input type="text" class="form-control" name="lotsize" id="contact-name" placeholder="Lot Size"required>
                 </div>
                 <div class="form-group">
-                    Garage Size: <input type="text"  class="form-control" name="garagesize" id="contact-name" placeholder="Garage Size">
+                    Garage Size: <input type="text"  class="form-control" name="garagesize" id="contact-name" placeholder="Garage Size"required>
                 </div>
                 <div class="row">
                     <div class="form-group">

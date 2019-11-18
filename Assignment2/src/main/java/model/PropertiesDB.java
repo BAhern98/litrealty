@@ -67,11 +67,9 @@ public class PropertiesDB {
    public static void insertProperty(Properties p) {
         EntityManager em = DBUtil.getEMF().createEntityManager();
         EntityTransaction trans = em.getTransaction();
-       System.out.println("\n\nadd a prop");
-       System.out.println(p.getCity());
-       System.out.println(p.getDescription());
-       System.out.println(p.getBerRating());
-       p.setBerRating("A1");
+
+     
+       //p.setBerRating("A1");
         
         try {
             trans.begin();
@@ -83,6 +81,24 @@ public class PropertiesDB {
             em.close();
         }
     }
+     public static void updateProperty(Properties p) {
+        EntityManager em = DBUtil.getEMF().createEntityManager();
+        EntityTransaction trans = em.getTransaction();
+
+     
+       //p.setBerRating("A1");
+        
+        try {
+            trans.begin();
+            em.merge(p);
+            trans.commit();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            em.close();
+        }
+    }
+   
 public static void archiveProperty(String property) {
         EntityManager em = DBUtil.getEMF().createEntityManager();
 
