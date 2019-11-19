@@ -19,7 +19,7 @@
     <body>
 
         <shiro:guest>
-        <center><form name="loginform" method="post">
+        <center><form action="login" name="loginform" method="post">
 
                 <span
                     <h1> Agent Login </h1>
