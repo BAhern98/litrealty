@@ -39,7 +39,7 @@
                         <shiro:user>
                         <div class="profile">
                             <p>Logged in as: <shiro:principal/></p>
-                            <img class="agent-icon" src="images/agents/${agentId}.jpg"/>
+                            <img class="agent-icon" src="images/agents/${agent.agentId}.jpg"/>
                             <br>
                         </div>
                     </shiro:user>
