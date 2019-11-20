@@ -19,7 +19,8 @@
     <body>
 
         <shiro:guest>
-        <center><form action="login" name="loginform" method="post">
+        
+        <center><form name="loginform" method="post">
 
                 <span
                     <h1> Agent Login </h1>
@@ -48,7 +49,7 @@
         <br>
         <a href="displayAll">Search Properties</a>
         <br>
-        <a href="displayAll">Logout</a>
+        <a href="Login.jsp">Logout</a>
     </shiro:user>
 </div>
 </div>
