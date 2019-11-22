@@ -20,3 +20,9 @@
 <p>Refine search working</p>
 <p>Add Working</p>
 <p>Delete alost working</p>
+
+<h1>Week 4</h1>
+<p>google maps working</p>
+<p> add, delete and display favourites are working</p>
+<p>add working but still without images</p>
+<p>added code for edit but not finished it yet</p>
