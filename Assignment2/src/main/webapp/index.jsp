@@ -64,7 +64,7 @@
                     <td><a href="displayProperty?propertyId=${aProperty.id}"><img src="images/properties/thumbs/${aProperty.photo}"></td>
                             <shiro:user>
                                 <td><a href="editProperty?id=${aProperty.id}">Edit</a></td>
-                                <td><a href="deleteProperty?propertyId=${aProperty.id}">Delete</a></td>
+                                <td><a href="deleteProperty?propertyId=${aProperty.id}" onclick="return confirm('Are you sure?')">Delete</a></td>
                             </shiro:user>
                 </tr>
 

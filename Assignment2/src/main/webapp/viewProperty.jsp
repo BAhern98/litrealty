@@ -71,6 +71,7 @@
                         <p><fmt:formatNumber value="${property.price}" type="currency" currencySymbol="&euro;" maxFractionDigits="2"/></p>
                         <h3>Available Since</h3>
                         <p>${property.dateAdded}</p>
+
                              <c:choose>
                             <c:when test="${!propertyInfavourites}">
                             <div class="info">

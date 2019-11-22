@@ -65,6 +65,10 @@ public class displayProperty extends HttpServlet {
             try {
                 Properties property = PropertiesDB.getPropertyByID(propertyId);
                 request.setAttribute("property", property);
+                if(property == null){
+                RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
+            rd.forward(request, response);
+                }
             } catch (Exception ex) {
                 log("ERROR: " + ex);
             }

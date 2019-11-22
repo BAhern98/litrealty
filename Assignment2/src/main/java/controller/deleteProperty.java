@@ -39,11 +39,12 @@ public class deleteProperty extends HttpServlet {
           
             String property = request.getParameter("propertyId");
            Properties p= PropertiesDB.getPropertyByID(property);
-            request.setAttribute("property", p);
+           PropertiesDB.deleteProperty(p);
+           // request.setAttribute("property", p);
         } catch (Exception ex) {
             log("ERROR: " + ex);
         }
-        RequestDispatcher rd = request.getRequestDispatcher("DeleteProperty.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("displayAll");
         rd.forward(request, response);
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

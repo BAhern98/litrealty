@@ -77,7 +77,10 @@ public class FavouriteRemoveProperty extends HttpServlet {
             }
             cookie.setValue(newCookie);
         }
-
+ if(cookie == null){
+                RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
+            rd.forward(request, response);
+                }
         cookie.setMaxAge(60 * 60 * 24 * 365 * 2);
 
         response.addCookie(cookie);

@@ -34,7 +34,7 @@
                         </shiro:guest>
                         <shiro:user>
                         <li><a href="AddProperty.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Add Property</a></li>
-                        <li><a href="Login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                        <li><a href="logout" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                         </shiro:user>
                         <shiro:user>
                         <div class="profile">

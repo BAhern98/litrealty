@@ -35,21 +35,18 @@ public class archiveProperty extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-//    int property =0;
-//             property = Integer.parseInt(request.getParameter("propertyId"));
-//            Properties p= PropertiesDB.getPropertyByID(property);
-//            request.setAttribute("property", p);
-  
-            
-                 String property = request.getParameter("propertyId");
-                         Properties p= PropertiesDB.getPropertyByID(property);
-            request.setAttribute("property", p);
-          
-                PropertiesDB.archiveProperty(property);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("displayAll");
-                dispatcher.forward(request, response);
 
-                
+               try {
+          
+            String property = request.getParameter("propertyId");
+           Properties p= PropertiesDB.getPropertyByID(property);
+           PropertiesDB.deleteProperty(p);
+           // request.setAttribute("property", p);
+        } catch (Exception ex) {
+            log("ERROR: " + ex);
+        }
+        RequestDispatcher rd = request.getRequestDispatcher("displayAll");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

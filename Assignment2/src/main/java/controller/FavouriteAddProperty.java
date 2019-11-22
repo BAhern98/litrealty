@@ -66,7 +66,10 @@ public class FavouriteAddProperty extends HttpServlet {
         cookie.setMaxAge(60 * 60 * 24 * 365 * 2);
 
         response.addCookie(cookie);
-
+ if(cookie == null){
+                RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
+            rd.forward(request, response);
+                }
         RequestDispatcher rd = request.getRequestDispatcher("displayProperty");
         rd.forward(request, response);
     }
