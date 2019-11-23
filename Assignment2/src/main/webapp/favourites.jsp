@@ -16,9 +16,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<script>$(document).ready(function () {
+<!--<script>$(document).ready(function () {
         $('#propertydatatable').DataTable();
-    });</script>
+    });</script>-->
+<script src="js/tables.js" </script>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

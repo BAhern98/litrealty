@@ -15,15 +15,17 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<script>$(document).ready(function () {
+<!--<script>$(document).ready(function () {
         $('#propertydatatable').DataTable();
-    });</script>
+    });</script>-->
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
+        <script src="js/tables.js" </script>
         <div class="container-fluid">
        <jsp:include page="/Header.jsp" />
             <div class="goBack">
