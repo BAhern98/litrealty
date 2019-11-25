@@ -59,6 +59,7 @@ public class addProperty extends HttpServlet {
             String propertytype = request.getParameter("propertytype");
             String style = request.getParameter("styletype");
             String propertyid = request.getParameter("propertyid");
+            String vendorid = request.getParameter("vendorid");
             
             
 
@@ -80,6 +81,7 @@ public class addProperty extends HttpServlet {
             p.setGaragesize(Short.valueOf(garagesize));
             p.setGarageId(Integer.valueOf(garagetype));
             p.setPrice(Double.valueOf(price));
+            p.setVendorid(Integer.valueOf(vendorid));
             Date d = new Date();
 
             p.setDateAdded(d);

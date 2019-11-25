@@ -6,6 +6,8 @@
     <class>model.Garagetypes</class>
     <class>model.Propertytypes</class>
     <class>model.Styles</class>
+    <class>model.Properties</class>
+    <class>model.Vendors</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/litrealty?zeroDateTimeBehavior=convertToNull"/>

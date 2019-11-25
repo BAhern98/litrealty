@@ -85,6 +85,9 @@
                 <div class="form-group">
                     Garage Size: <input type="text"  class="form-control" name="garagesize" id="contact-name" placeholder="Garage Size"required>
                 </div>
+                  <div class="form-group">
+                    Vendor ID: <input type="text"  class="form-control" name="vendorid" id="contact-name" placeholder="Vendor ID"required>
+                </div>
                 <div class="row">
                     <div class="form-group">
                         <div class="col-12 col-md-12 col-lg-12">

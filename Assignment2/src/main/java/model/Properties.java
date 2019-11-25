@@ -24,6 +24,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
+ *
  * @author Brendan
  */
 @Entity
@@ -47,9 +48,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Properties.findByAgentId", query = "SELECT p FROM Properties p WHERE p.agentId = :agentId"),
     @NamedQuery(name = "Properties.findByPhoto", query = "SELECT p FROM Properties p WHERE p.photo = :photo"),
     @NamedQuery(name = "Properties.findByPrice", query = "SELECT p FROM Properties p WHERE p.price = :price"),
-                                                                //  "SELECT p FROM Properties p WHERE (p.price >= :minPrice AND p.price <= :maxPrice) AND p.city LIKE :place"
-   @NamedQuery(name = "Properties.findByCityAndPrice", query = "SELECT p FROM Properties p WHERE p.city = :city AND p.price > :minPrice AND p.price < :maxPrice"),
-    @NamedQuery(name = "Properties.findByDateAdded", query = "SELECT p FROM Properties p WHERE p.dateAdded = :dateAdded")})
+    @NamedQuery(name = "Properties.findByDateAdded", query = "SELECT p FROM Properties p WHERE p.dateAdded = :dateAdded"),
+    @NamedQuery(name = "Properties.findByVendorid", query = "SELECT p FROM Properties p WHERE p.vendorid = :vendorid"),
+        @NamedQuery(name = "Properties.findByLocationAndPrice", query = "SELECT p FROM Properties p WHERE p.city = :city AND p.price > :minPrice AND p.price < :maxPrice")})
+
 public class Properties implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -105,6 +107,10 @@ public class Properties implements Serializable {
     @Column(name = "dateAdded")
     @Temporal(TemporalType.DATE)
     private Date dateAdded;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "vendorid")
+    private int vendorid;
 
     public Properties() {
     }
@@ -113,10 +119,11 @@ public class Properties implements Serializable {
         this.id = id;
     }
 
-    public Properties(Integer id, String berRating, Date dateAdded) {
+    public Properties(Integer id, String berRating, Date dateAdded, int vendorid) {
         this.id = id;
         this.berRating = berRating;
         this.dateAdded = dateAdded;
+        this.vendorid = vendorid;
     }
 
     public Integer getId() {
@@ -261,6 +268,14 @@ public class Properties implements Serializable {
 
     public void setDateAdded(Date dateAdded) {
         this.dateAdded = dateAdded;
+    }
+
+    public int getVendorid() {
+        return vendorid;
+    }
+
+    public void setVendorid(int vendorid) {
+        this.vendorid = vendorid;
     }
 
     @Override

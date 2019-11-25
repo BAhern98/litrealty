@@ -7,26 +7,22 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.security.auth.Subject;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Agents;
-import model.AgentsDB;
-import org.apache.shiro.SecurityUtils;
-
-
+import model.Vendors;
+import model.VendorsDB;
 
 /**
  *
- * @author K00203657
+ * @author Brendan
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
-public class login extends HttpServlet {
+@WebServlet(name = "displayVendors", urlPatterns = {"/displayVendors"})
+public class displayVendors extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,15 +36,31 @@ public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-  
-//        HttpSession session = request.getSession();
-//        
-//          session.setAttribute("Agent", a);
-//          
-//          RequestDispatcher rd = request.getRequestDispatcher("displayAll");
-//          rd.forward(request, response);
-        
-}
+    try ( PrintWriter out = response.getWriter()) {
+            String address;
+
+            try {
+
+                List<Vendors> list = VendorsDB.getAllVendors();
+
+                if (list == null || list.isEmpty()) {
+                    address = "/Error.jsp";
+                } else {
+
+                    address = "/ViewVendors.jsp";
+                    request.setAttribute("list", list);
+                }
+                
+
+            }//end try
+            catch (Exception ex) {
+                address = "/Error.jsp";
+            }//end catch
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+            dispatcher.forward(request, response);
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
