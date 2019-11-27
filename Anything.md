@@ -26,3 +26,11 @@
 <p> add, delete and display favourites are working</p>
 <p>add working but still without images</p>
 <p>added code for edit but not finished it yet</p>
+
+<h1>Week 5</h1>
+<p>log out working</p>
+<p>handles if the object returning from the db is null, for drill down, add fav, delete fav</p>
+<p>added vendors table and vendor id column in the properties table </p>
+<p>added display all vendors and vendors drill down</p>
+<p>archiving delete works but doesnt insert all properties in the db</p>
+<p>edit worked but you needed the to know id of the value of the property that you wanted  to display, now the edit doesnt work and need to figure out why</p>
