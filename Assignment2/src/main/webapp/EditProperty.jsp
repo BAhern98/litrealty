@@ -28,7 +28,7 @@
             </div>
             <form action="SaveEditProperty" method="post">
                 <div class="form-group">
-                    Street Address: <input type="text" value="${property.getstreet}" class="form-control" name="street" placeholder="Street Address" required>
+                    Street Address: <input type="text" value="${property.street}" class="form-control" name="street" placeholder="Street Address" required>
                 </div>
                 <div class="form-group">
                     Description: <textarea style="height:80px" class="form-control" name="description" placeholder="Description"required>${property.description}</textarea>
@@ -41,7 +41,7 @@
                     Agent ID: <input type="text" value="${property.agentId}" class="form-control" name="agent" placeholder="agent"required>
                 </div>
                 <div class="form-group">
-                    ID:  <input type="text" value="${property.id}" class="form-control" name="propertyid" placeholder="Property ID"required>
+                    ID:  <p>${property.id}</p>
                 </div>
                 <div class="form-group">
                     Price: <input type="number" value="${property.price}" class="form-control" name="price"  placeholder="Price"required>
@@ -53,7 +53,7 @@
                     Bathrooms: <input type="number" value="${property.bathrooms}" class="form-control" name="bathrooms"  placeholder="Bathrooms"required>
                 </div>
                 <div class="form-group">
-                    Listing Number: <input type="number" class="form-control" name="listingnum" id="contact-number" placeholder="Listing Number"required>
+                    Listing Number: <input type="number" value="${property.listingNum}"class="form-control" name="listingnum" id="contact-number" placeholder="Listing Number"required>
                 </div>
                 <div class="form-group">
                     SQ. Feet: <input type="number" value="${property.squarefeet}" class="form-control" name="squarefeet"  placeholder="SQ Feet"required>
@@ -62,19 +62,19 @@
                     <div class="col-12 col-md-12 col-lg-12">
                         BER Rating
                         <select class="form-control" name="berRating">
-                            <option value="1">A1</option>
-                            <option value="2">A2</option>
-                            <option value="3">A3</option>
-                            <option value="4">B1</option>
-                            <option value="5">B2</option>
-                            <option value="6">B3</option>
-                            <option value="7">C1</option>
-                            <option value="8">C2</option>
-                            <option value="9">C3</option>
-                            <option value="10">D1</option>
-                            <option value="11">D2</option>
-                            <option value="12">F</option>
-                            <option value="13">G</option>
+                                <option value="A1">A1</option>
+                                <option value="A2">A2</option>
+                                <option value="A3">A3</option>
+                                <option value="B1">B1</option>
+                                <option value="B2">B2</option>
+                                <option value="B3">B3</option>
+                                <option value="C1">C1</option>
+                                <option value="C2">C2</option>
+                                <option value="C3">C3</option>
+                                <option value="D1">D1</option>
+                                <option value="D2">D2</option>
+                                <option value="F">F</option>
+                                <option value="G">G</option>
                         </select>
                     </div>
                 </div>

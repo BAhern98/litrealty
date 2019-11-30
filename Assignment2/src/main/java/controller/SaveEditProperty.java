@@ -62,7 +62,7 @@ public class SaveEditProperty extends HttpServlet {
             
             Properties p = PropertiesDB.getPropertyByID(propertyid);
          
-            p.setAgentId(Integer.valueOf(agent));
+         p.setAgentId(Integer.valueOf(agent));
             p.setStreet(street);
             p.setCity(city);
             p.setListingNum(Integer.valueOf(listingnum));

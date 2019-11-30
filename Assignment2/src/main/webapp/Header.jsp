@@ -4,6 +4,16 @@
     Author     : Brendan
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.io.IOException"%>
+<%@page import="javax.imageio.ImageIO"%>
+<%@page import="java.io.File"%>
+<%@page import="java.awt.image.BufferedImage"%>
+<%@page import="java.awt.Toolkit"%>
+<%@page import="java.awt.Rectangle"%>
+<%@page import="java.awt.Robot"%>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,7 +39,7 @@
                           <li><a href="SearchProperty.jsp" style="color: white;">Search</a></li>
 
                         <li><a href="displayFavourites" style="color: white;">Favourites</a></li>
-
+<li><a href="MortgageCalculator.jsp" style="color: white;">Mortgage Calculator</a></li>
                         <li><a href="Login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Agent Login</a></li>
                         </shiro:guest>
                         <shiro:user>
@@ -44,13 +54,52 @@
                             <br>
                         </div>
                     </shiro:user>
-                </ul>
-                    </nav>
+                        <div>
+                            <form action="#"method="post">
 
+<input type="hidden"name="take"id="take"value="take_photo"/><input type="submit" value="Screen Shot"/>
+                        </div>
+                </ul>
+
+
+    </form>
+     <%
+
+String a = request.getParameter("take");if(a!=null)
+    {
+         Date today = Calendar.getInstance().getTime();
+
+    // (2) create a date "formatter" (the date format we want)
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-hh.mm.ss");
+
+    // (3) create a new String using the date format we want
+    String date = formatter.format(today);
+        try {
+        //int num = 1;
+          
+                   Robot robot = new Robot();
+            BufferedImage screenShot = robot
+                    .createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+            String home = System.getProperty("user.home");
+            String save = "test" +date + ".jpg";
+// boolean check = new File(home + "\\Desktop", save).exists();
+// while (check ==true){
+////save ="test"  + (num++) +".jpg";
+//    num++;
+    
+   //s  }
+     save = "test" +date + ".jpg";
+            ImageIO.write(screenShot, "JPG", new File(home + "\\Desktop" , save));
+       
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        }
+
+}%>
         </div>
     </nav>
     </head>
     <body>
-       
+
     </body>
 </html>

@@ -44,8 +44,9 @@ public class editProperty extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+         String propertyId = request.getParameter("propertyId");
      try {
-            Properties property = PropertiesDB.getPropertyByID(request.getParameter("propertyId"));
+            Properties property = PropertiesDB.getPropertyByID(propertyId);
             request.setAttribute("property", property);
         } catch (Exception ex) {
             log("ERROR: " + ex);
