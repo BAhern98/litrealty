@@ -47,10 +47,10 @@ public class VendorDrill extends HttpServlet {
             try {
                 Vendors vendor = VendorsDB.getVendorByID(vendorId);
                 request.setAttribute("vendor", vendor);
-//                if(vendors == null){
-//                RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
-//            rd.forward(request, response);
-//                }
+                if(vendor == null){
+                RequestDispatcher rd = request.getRequestDispatcher("404.jsp");
+            rd.forward(request, response);
+                }
             } catch (Exception ex) {
                 log("ERROR: " + ex);
             }

@@ -139,37 +139,15 @@ public class PropertiesDB {
 //            em.clear();
 //        }
 //    }
-//          public static List<Properties> searchProperty(String city, String maxPrice,String minPrice) {
-//        EntityManager em = DBUtil.getEMF().createEntityManager();
-//        List<Properties> list = new ArrayList<>();
-//        try {
-//            list = em.createNamedQuery("Properties.findByCityAndPrice")
-//                    .setParameter("city", city)
-//                    .setParameter("minPrice", minPrice)
-//                    .setParameter("maxPrice", maxPrice)
-//                    .getResultList();
-//            if (list == null || list.isEmpty()) {
-//                list = null;
-//            }
-//        } catch (Exception ex) {
-//            System.out.println(ex);
-//        } finally {
-//            em.clear();
-//        }
-//        return list;
-//    }
- public static List<Properties> searchProperty(String city, String maxPrice,String minPrice) {
+          public static List<Properties> searchProperty(String city, String maxPrice,String minPrice) {
         EntityManager em = DBUtil.getEMF().createEntityManager();
-
-        List<Properties> list = null;
+        List<Properties> list =null;
         try {
-            String q = "SELECT p FROM Properties p WHERE p.city = " + "'"+city+"'" + " AND p.price < " + maxPrice + " AND p.price > "+ minPrice;
-            
-            
-            TypedQuery<Properties> tq = em.createQuery(q, Properties.class);
-
-            list = tq.getResultList();
-
+            list = em.createNamedQuery("Properties.findByCityAndPrice")
+                    .setParameter("city", city)
+                    .setParameter("minPrice", Double.parseDouble(minPrice))
+                    .setParameter("maxPrice", Double.parseDouble(maxPrice))
+                    .getResultList();
             if (list == null || list.isEmpty()) {
                 list = null;
             }
@@ -178,9 +156,8 @@ public class PropertiesDB {
         } finally {
             em.clear();
         }
-
         return list;
     }
-  
+
     
 }
