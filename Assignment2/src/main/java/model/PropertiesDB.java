@@ -6,8 +6,12 @@
 package model;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -123,7 +127,28 @@ public class PropertiesDB {
             em.close();
         }
     }
+        public static List<Properties> getRecentProperties() {
+        EntityManager em = DBUtil.getEMF().createEntityManager();
+        Date date = new Date();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DATE, -7);
+        Date week = c.getTime();
         
+        String q = "SELECT p from Properties p WHERE p.dateAdded <='" + df.format(date) + "'AND p.dateAdded >='" + df.format(week) + "'";
+        TypedQuery<Properties> tq = em.createQuery(q, Properties.class);
+        List<Properties> list;
+
+        try {
+            list = tq.getResultList();
+            if (list == null || list.isEmpty()) {
+                list = null;
+            }
+        } finally {
+            em.close();
+        }
+        return list;
+    }
 //public static void archiveProperty(String property) {
 //        EntityManager em = DBUtil.getEMF().createEntityManager();
 //

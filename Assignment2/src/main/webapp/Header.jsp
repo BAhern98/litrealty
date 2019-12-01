@@ -37,7 +37,7 @@
                     <li class="active"><a href="displayAll" style="color: white;">Properties</a></li>
                         <shiro:guest>
                           <li><a href="SearchProperty.jsp" style="color: white;">Search</a></li>
-
+<li><a href="RecentProperties" style="color: white;">View Recent Properties</a></li>
                         <li><a href="displayFavourites" style="color: white;">Favourites</a></li>
 <li><a href="MortgageCalculator.jsp" style="color: white;">Mortgage Calculator</a></li>
                         <li><a href="Login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Agent Login</a></li>
