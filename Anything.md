@@ -34,3 +34,11 @@
 <p>added display all vendors and vendors drill down</p>
 <p>archiving delete works but doesnt insert all properties in the db</p>
 <p>edit worked but you needed the to know id of the value of the property that you wanted  to display, now the edit doesnt work and need to figure out why</p>
+
+<h1>Week final</h1>
+
+<p>view properties added to market in last 7 days working</p>
+<p></p>
+<h1>Unique feature</h1>
+<p>I added a morgage calcularor where the user can enter how much the morgage will be, the percentage of the morgage interest and how much months it will be for and it will display how much the user will pay per month, i used javascript for this </p>
+<p>i added a snapshot feature where the user can take a picture of the webpage and it was save onto their desktop with the date and time attached to the image title, i did this by creating a scriptlet in the header.jsp and using several imports, the rectangle, robot, date, calendar, buffered image,SimpleDateFormat, imageio and  toolkit</p>
