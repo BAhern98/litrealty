@@ -17,7 +17,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Agents;
 import model.AgentsDB;
+import static model.AgentsDB.getAgentByUserName;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.UnavailableSecurityManagerException;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.ExcessiveAttemptsException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.LockedAccountException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 
 
 
@@ -28,25 +36,71 @@ import org.apache.shiro.SecurityUtils;
 @WebServlet(name = "login", urlPatterns = {"/login"})
 public class login extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
   
-//        HttpSession session = request.getSession();
-//        
-//          session.setAttribute("Agent", a);
-//          
-//          RequestDispatcher rd = request.getRequestDispatcher("displayAll");
-//          rd.forward(request, response);
+  Agents CurrentAgent = null;
+        String nextPage;
+
+        try {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+
+            UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+            token.setRememberMe(true);
+
+            org.apache.shiro.subject.Subject currentUser = SecurityUtils.getSubject();
+            currentUser.login(token);
+
+            CurrentAgent = getAgentByUserName(currentUser.getPrincipal().toString());
+
+            log("Agent " + CurrentAgent.getName() + " logged in");
+
+            nextPage = "displayAll";
+
+            HttpSession session = request.getSession();
+            session.setAttribute("CurrentAgent", CurrentAgent);
+            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+            rd.forward(request, response);
+        } catch (UnknownAccountException uae) {
+            log("Unknown Account " + uae);
+            nextPage = "Login.jsp";
+            request.setAttribute("error", "Unknown Account");
+            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+            rd.forward(request, response);
+        } catch (IncorrectCredentialsException ice) {
+            log("Incorrect Credentials " + ice);
+            nextPage = "Login.jsp";
+            request.setAttribute("error", "Incorrect Credentials");
+            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+            rd.forward(request, response);
+        } catch (LockedAccountException lae) {
+            log("Locked Account " + lae);
+            nextPage = "Login.jsp";
+            request.setAttribute("error", "Locked Account");
+            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+            rd.forward(request, response);
+        } catch (ExcessiveAttemptsException eae) {
+            log("Excessive Attempts " + eae);
+            nextPage = "Login.jsp";
+            request.setAttribute("error", "Excessive Attempts");
+            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+            rd.forward(request, response);
+        } catch (AuthenticationException ae) {
+            log("Authentication Error " + ae);
+            nextPage = "Login.jsp";
+            request.setAttribute("error", "Authentication Error");
+            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+            rd.forward(request, response);
+        } catch (UnavailableSecurityManagerException usme) {
+            log("Unavailable Security Manager " + usme);
+            nextPage = "Login.jsp";
+            request.setAttribute("error", "Unavailable Security Manager");
+            RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+            rd.forward(request, response);
+        }
         
 }
 

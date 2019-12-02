@@ -15,7 +15,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+<!--<script>$(document).ready(function () {
+        $('#propertydatatable').DataTable();
+    });</script>-->
 
 <html>
     <head>
@@ -41,7 +43,10 @@
                 <th>Price</th>
                     <th>Ber Rating</th>
                 <th>Image</th>
-          
+                    <shiro:user>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    </shiro:user>
 
 
 
@@ -50,7 +55,7 @@
 
 
         <tbody>
-            <c:forEach  items="${list}" var ="aProperty" >
+            <c:forEach  items="${agentPropertiesList}" var ="aProperty" >
 
                 <tr>
                     <td>${aProperty.id}</td>
@@ -59,7 +64,10 @@
                     <td><fmt:formatNumber value="${aProperty.price}" type="currency" currencySymbol="&euro;" maxFractionDigits="2"/></td>
                          <td><img src="images/BER/${aProperty.berRating}.png"/></td>
                     <td><a href="displayProperty?propertyId=${aProperty.id}"><img src="images/properties/thumbs/${aProperty.photo}"></td>
-                 
+                            <shiro:user>
+                                <td><a href="editProperty?propertyId=${aProperty.id}">Edit</a></td>
+                                <td><a href="deleteProperty?propertyId=${aProperty.id}" onclick="return confirm('Are you sure?')">Delete</a></td>
+                            </shiro:user>
                 </tr>
 
             </c:forEach>  

@@ -8,6 +8,8 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 import model.Agents;
 import model.Properties;
 import model.PropertiesDB;
@@ -38,11 +41,11 @@ public class addProperty extends HttpServlet {
    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        //            HttpSession session = request.getSession();
-//            Agents agent = (Agents) session.getAttribute("loginAgent");
-//            Integer agentID = agent.getAgentId();
-
+//        
+//  HttpSession session = request.getSession();
+//       // Agents CurrentAgent = (Agents) session.getAttribute("CurrentAgent");
+//            Agents agent = (Agents) session.getAttribute("CurrentAgent");
+//                    Integer agentId = agent.getAgentId();
 
             String street = request.getParameter("street");
             String description = request.getParameter("description");
@@ -58,14 +61,14 @@ public class addProperty extends HttpServlet {
             String garagetype = request.getParameter("garagetype");
             String propertytype = request.getParameter("propertytype");
             String style = request.getParameter("styletype");
-            String propertyid = request.getParameter("propertyid");
+           
             String vendorid = request.getParameter("vendorid");
             
             
 
             
             Properties p = new Properties();
-            p.setId(0);
+           // p.setId(0);
             p.setAgentId(0);
             p.setStreet(street);
             p.setCity(city);

@@ -24,6 +24,7 @@ import javax.persistence.TypedQuery;
  */
 public class PropertiesDB {
 
+    
     public static List<Properties> getAllProperties() {
         EntityManager em = DBUtil.getEMF().createEntityManager();
         List<Properties> list = null;
@@ -172,6 +173,23 @@ public class PropertiesDB {
                     .setParameter("city", city)
                     .setParameter("minPrice", Double.parseDouble(minPrice))
                     .setParameter("maxPrice", Double.parseDouble(maxPrice))
+                    .getResultList();
+            if (list == null || list.isEmpty()) {
+                list = null;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            em.clear();
+        }
+        return list;
+    }
+        public static List<Properties> getPropertiesByAgentId(int agentId) {
+        EntityManager em = DBUtil.getEMF().createEntityManager();
+        List<Properties> list = null;
+        try {
+            list = em.createNamedQuery("Properties.findByAgentId")
+                    .setParameter("agentId", agentId)
                     .getResultList();
             if (list == null || list.isEmpty()) {
                 list = null;

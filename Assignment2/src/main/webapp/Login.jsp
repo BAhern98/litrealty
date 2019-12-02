@@ -20,7 +20,7 @@
 
         <shiro:guest>
         
-        <center><form name="loginform"  method="post">
+        <center><form name="loginform"  action="login" method="post">
 
              
                     <h1> Agent Login </h1>

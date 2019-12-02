@@ -12,11 +12,22 @@
       <listener>
         <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
     </listener>
-
+<!--    <welcome-file-list>
+        <welcome-file>Login.jsp</welcome-file>
+    </welcome-file-list>-->
     <filter>
         <filter-name>ShiroFilter</filter-name>
         <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
     </filter>
+<servlet>
+        <servlet-name>addProperty</servlet-name>
+        <servlet-class>addProperty</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addProperty</servlet-name>
+        <url-pattern>/addProperty</url-pattern>
+    </servlet-mapping>
+
 
     <filter-mapping>
         <filter-name>ShiroFilter</filter-name>

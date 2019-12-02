@@ -29,7 +29,7 @@
                         <a style="text-align: left;"href="javascript:history.back()">Go Back</a>
                     </div>
             <div>
-             <form action="addProperty" method="post">
+             <form action="addProperty" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     Street Address: <input type="text"  class="form-control" name="street" id="contact-name" placeholder="Street Address" required >
                 </div>
@@ -134,9 +134,10 @@
                         </div>
                     </div>
                 </div>
-                 <div class="col-md-3">
-                                    <input type="file" name="file" type="file"  required>
-                                </div>
+<!--                 <div class="col-md-3">
+                     Choose Images
+                                    <input type="file" name="file" type="file" multiple required>
+                                </div>-->
                
                     <button type="submit" class="btn south-btn">Save Details</button>
      
@@ -145,4 +146,5 @@
         <div class="col-md-3">
         </div>
     </body>
+
 </html>

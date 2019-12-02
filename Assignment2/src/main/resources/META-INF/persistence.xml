@@ -8,6 +8,7 @@
     <class>model.Styles</class>
     <class>model.Properties</class>
     <class>model.Vendors</class>
+    <class>model.Archive</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/litrealty?zeroDateTimeBehavior=convertToNull"/>
@@ -15,11 +16,10 @@
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value=""/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
-      <property name ="eclipselink.connection-pool.default.initial" value="1"/>
-      <property name ="eclipselink.connection-pool.default.min" value="2"/>
-       <property name ="eclipselink.connection-pool.default.max" value="8"/>
-        <property name ="eclipselink.connection-pool.default.wait" value="1000"/>
-  
+      <property name="eclipselink.connection-pool.default.initial" value="1"/>
+      <property name="eclipselink.connection-pool.default.min" value="2"/>
+      <property name="eclipselink.connection-pool.default.max" value="8"/>
+      <property name="eclipselink.connection-pool.default.wait" value="1000"/>
     </properties>
   </persistence-unit>
 </persistence>

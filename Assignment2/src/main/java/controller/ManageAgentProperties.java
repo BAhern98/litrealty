@@ -7,12 +7,15 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Agents;
 import model.Properties;
 import model.PropertiesDB;
 
@@ -20,8 +23,8 @@ import model.PropertiesDB;
  *
  * @author Brendan
  */
-@WebServlet(name = "archiveProperty", urlPatterns = {"/archiveProperty"})
-public class archiveProperty extends HttpServlet {
+@WebServlet(name = "ManageAgentProperties", urlPatterns = {"/ManageAgentProperties"})
+public class ManageAgentProperties extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,18 +38,21 @@ public class archiveProperty extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            HttpSession session = request.getSession();
+            Agents CurrentAgent = (Agents) session.getAttribute("CurrentAgent");
 
-               try {
-          
-            String property = request.getParameter("propertyId");
-           Properties p= PropertiesDB.getPropertyByID(property);
-           PropertiesDB.deleteProperty(p);
-           // request.setAttribute("property", p);
+            List<Properties> agentPropertiesList = PropertiesDB.getPropertiesByAgentId(CurrentAgent.getAgentId());
+            request.setAttribute("agentPropertiesList", agentPropertiesList);
+            RequestDispatcher rd = request.getRequestDispatcher("/adminIndex.jsp");
+            rd.forward(request, response);
+
         } catch (Exception ex) {
             log("ERROR: " + ex);
+
         }
-        RequestDispatcher rd = request.getRequestDispatcher("displayAll");
-        rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -47,21 +47,21 @@ public class AgentsDB {
   
 
     }
-//    public static Agents getAgentByName(String name) {
-//
-//        EntityManager em = DBUtil.getEMF().createEntityManager();
-//        Agents a;
-//        TypedQuery tq = em.createNamedQuery("Agents.findByUsername", Agents.class);
-//        tq.setParameter("username", name);
-//
-//        try {
-//            a = (Agents) tq.getSingleResult();
-//        } finally {
-//            em.close();
-//        }
-//
-//        return a;
-//    }
+    public static Agents getAgentByUserName(String username) {
+
+  EntityManager em = DBUtil.getEMF().createEntityManager();
+        Agents agent = null;
+        try {
+            agent = em.createNamedQuery("Agents.findByUsername", Agents.class)
+                    .setParameter("username", username)
+                    .getSingleResult();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        } finally {
+            em.clear();
+        }
+        return agent;
+    }
     
   
     
