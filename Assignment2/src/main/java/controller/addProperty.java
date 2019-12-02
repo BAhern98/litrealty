@@ -42,10 +42,10 @@ public class addProperty extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 //        
-//  HttpSession session = request.getSession();
-//       // Agents CurrentAgent = (Agents) session.getAttribute("CurrentAgent");
-//            Agents agent = (Agents) session.getAttribute("CurrentAgent");
-//                    Integer agentId = agent.getAgentId();
+  HttpSession session = request.getSession();
+       // Agents CurrentAgent = (Agents) session.getAttribute("CurrentAgent");
+            Agents agent = (Agents) session.getAttribute("CurrentAgent");
+                    Integer agentId = agent.getAgentId();
 
             String street = request.getParameter("street");
             String description = request.getParameter("description");
@@ -69,7 +69,7 @@ public class addProperty extends HttpServlet {
             
             Properties p = new Properties();
            // p.setId(0);
-            p.setAgentId(0);
+            p.setAgentId(agentId);
             p.setStreet(street);
             p.setCity(city);
             p.setListingNum(Integer.valueOf(listingnum));
@@ -91,7 +91,7 @@ public class addProperty extends HttpServlet {
 
             PropertiesDB.insertProperty(p);
             
-            RequestDispatcher dispatcher = request.getRequestDispatcher("displayAll");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("ManageAgentProperties");
             dispatcher.forward(request, response);
         
     }

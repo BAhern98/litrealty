@@ -29,7 +29,7 @@
                         <a style="text-align: left;"href="javascript:history.back()">Go Back</a>
                     </div>
             <div>
-             <form action="addProperty" method="post" enctype="multipart/form-data">
+             <form action="addProperty" method="post">
                 <div class="form-group">
                     Street Address: <input type="text"  class="form-control" name="street" id="contact-name" placeholder="Street Address" required >
                 </div>
