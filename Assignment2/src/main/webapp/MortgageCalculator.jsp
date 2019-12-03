@@ -30,17 +30,14 @@
        <script>
        MorgageCalculator();
         </script>
-    <center><form>
-       <p>Loan Amount: $<input id="amount" type="number" min="1" max="1000000" onchange="computeLoan()"></p>
+    <center><form action="#" method="get">
+       <p>Loan Amount:  €<input id="amount" type="number" min="1" max="1000000" onchange="computeLoan()"></p>
 <p>Interest Rate: <input id="interest_rate" type="number" min="0" max="100" value="10" step=".1" onchange="computeLoan()">%</p>
 <p>Months: <input id="months" type="number" min="1" max="72" value="1" step="1" onchange="computeLoan()"></p>
   <button type="button" onclick="MorgageCalculator()"class="btn south-btn">Click me</button>
 <h2 id="payment"></h2>
 
-            <br>
-    <br>
-    <br><br>
-    <br>
+  
       </form></center>
     <br>
     <br>
