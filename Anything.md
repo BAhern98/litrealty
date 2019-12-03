@@ -40,7 +40,14 @@
 <p>view properties added to market in last 7 days working</p>
 <p>refactored code and jsp so agents can only manage their properties</p>
 <p>added photo when agent logs in</p>
-<p>added sessiosn so i can call the agent whops logged in servlets for the add </p>
+<p>added sessiosn so i can call the agent whos logged in servlets for the add peoperty and be put into the property row automaticaly </p>
+<p>archiving function now works, properties are now added to the archive table upon deleted</p>
+<p>encrypted database</p>
+<p>edit now working except for the photos</p>
+<p>add now downing except for the photos</p>
 <h1>Unique feature</h1>
-<p>I added a morgage calcularor where the user can enter how much the morgage will be, the percentage of the morgage interest and how much months it will be for and it will display how much the user will pay per month, i used javascript for this </p>
-<p>i added a snapshot feature where the user can take a picture of the webpage and it was save onto their desktop with the date and time attached to the image title, i did this by creating a scriptlet in the header.jsp and using several imports, the rectangle, robot, date, calendar, buffered image,SimpleDateFormat, imageio and  toolkit</p>
+<p>I added a morgage calcularor where the user can enter how much the morgage will be, the percentage of the morgage interest and how much months it will be for and it will display how much the user will pay per month, i used javascript for this , its handy for clients who sont want to do number crunching on a calculator</p>
+<br>
+<p>i added a snapshot feature where the user can take a picture of the webpage and it was save onto their desktop with the date and time attached to the image title, i did this by creating a scriptlet in the header.jsp and using several imports, the rectangle, robot, date, calendar, buffered image,SimpleDateFormat, imageio and  toolkit, customers can use this for documenting the mortague results calculator that i added or emailing puctures of properties or property data to friend and family </p>
+<br>
+<p>you can find the snapshot feature in a button in the header and the mortague calulator link in the header aswell</p>
