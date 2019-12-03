@@ -48,18 +48,19 @@
                     <li><a href="AddProperty.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Add Property</a></li>
                     <li><a href="logout" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </shiro:user>
-                    <shiro:user>
+           
+                <div>
+                    <form action="#"method="post">
+
+                        <input type="hidden"name="take"id="take"value="take_photo"/><input type="submit" value="Screen Shot"/>
+                </div>
+                             <shiro:user>
                     <div class="profile">
                         <p>Logged in as: <shiro:principal/></p>
                         <img class="agent-icon" src="images/agents/${sessionScope.CurrentAgent.getAgentId()}.jpg" height="100" width="100" alt="photo"/>
                         <br>
                     </div>
                 </shiro:user>
-                <div>
-                    <form action="#"method="post">
-
-                        <input type="hidden"name="take"id="take"value="take_photo"/><input type="submit" value="Screen Shot"/>
-                </div>
             </ul>
 
 
