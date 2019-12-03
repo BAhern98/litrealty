@@ -77,7 +77,7 @@ public class deleteProperty extends HttpServlet {
         } catch (Exception ex) {
             log("ERROR: " + ex);
         }
-        RequestDispatcher rd = request.getRequestDispatcher("displayAll");
+        RequestDispatcher rd = request.getRequestDispatcher("ManageAgentProperties");
         rd.forward(request, response);
     }
 

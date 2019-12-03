@@ -45,6 +45,7 @@ public class login extends HttpServlet {
         String nextPage;
 
         try {
+            
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 
@@ -102,7 +103,9 @@ public class login extends HttpServlet {
             rd.forward(request, response);
         }
         
+        
 }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

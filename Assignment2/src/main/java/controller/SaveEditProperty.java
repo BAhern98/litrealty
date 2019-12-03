@@ -55,16 +55,16 @@ public class SaveEditProperty extends HttpServlet {
             String garagetype = request.getParameter("garagetype");
             String propertytype = request.getParameter("propertytype");
             String style = request.getParameter("styletype");
-            String propertyId = request.getParameter("propertyId");
+      String propertyId = request.getParameter("propertyId");
             String agent = request.getParameter("agent");
             String vendorid = request.getParameter("vendorid");
             
             
            
-            
+          
             Properties p = PropertiesDB.getPropertyByID(propertyId);
-           // Properties p = new Properties();
-         p.setId(Integer.valueOf(propertyId));
+                 //Properties p = new Properties();
+         //p.setId(Integer.valueOf(propertyId));
             p.setAgentId(Integer.valueOf(agent));
             p.setStreet(street);
             p.setCity(city);
@@ -79,7 +79,7 @@ public class SaveEditProperty extends HttpServlet {
             p.setLotsize(lotsize);
             p.setGaragesize(Short.valueOf(garagesize));
             p.setGarageId(Integer.valueOf(garagetype));
-        p.setId(Integer.valueOf(vendorid));
+        p.setVendorid(Integer.valueOf(vendorid));
             p.setPrice(Double.valueOf(price));
             Date d = new Date();
 

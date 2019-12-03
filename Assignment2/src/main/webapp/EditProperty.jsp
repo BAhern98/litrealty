@@ -40,8 +40,9 @@
                 <div class="form-group">
                     Agent ID: <input type="text" value="${property.agentId}" class="form-control" name="agent" placeholder="agent"required>
                 </div>
+            
                   <div class="form-group">
-                    Property ID: <input type="text" value="${property.id}" class="form-control" name="propertyId" placeholder="agent"required>
+                    Property ID: <input type="text"  value="${property.id}" class="form-control" name="propertyId" placeholder="Property ID"required>
                 </div>
            
                 <div class="form-group">

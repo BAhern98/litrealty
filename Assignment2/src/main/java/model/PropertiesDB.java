@@ -87,10 +87,7 @@ public class PropertiesDB {
      public static void updateProperty(Properties p) {
         EntityManager em = DBUtil.getEMF().createEntityManager();
         EntityTransaction trans = em.getTransaction();
-
-     
-       //p.setBerRating("A1");
-        
+ 
         try {
             trans.begin();
             em.merge(p);
