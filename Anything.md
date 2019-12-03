@@ -38,7 +38,7 @@
 <h1>Week final</h1>
 
 <p>view properties added to market in last 7 days working</p>
-<p>refactored code and jsp so agents can only manage their properties</p>
+<p>refactored code and jsp so agents can only manage their properties but can still view all properties</p>
 <p>added photo when agent logs in</p>
 <p>added sessiosn so i can call the agent whos logged in servlets for the add peoperty and be put into the property row automaticaly </p>
 <p>archiving function now works, properties are now added to the archive table upon deleted</p>
