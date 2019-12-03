@@ -80,13 +80,13 @@
      
                
                 <div class="form-group">
-                    Lot Size: <input type="text" class="form-control" name="lotsize" id="contact-name" placeholder="Lot Size"required>
+                    Lot Size: <input type="number" class="form-control" name="lotsize" id="contact-name" placeholder="Lot Size"required>
                 </div>
                 <div class="form-group">
-                    Garage Size: <input type="text"  class="form-control" name="garagesize" id="contact-name" placeholder="Garage Size"required>
+                    Garage Size: <input type="number"  class="form-control" name="garagesize" id="contact-name" placeholder="Garage Size"required>
                 </div>
                   <div class="form-group">
-                    Vendor ID: <input type="text"  class="form-control" name="vendorid" id="contact-name" placeholder="Vendor ID"required>
+                    Vendor ID: <input type="number"  class="form-control" name="vendorid" id="contact-name" placeholder="Vendor ID"required>
                 </div>
                 <div class="row">
                     <div class="form-group">
