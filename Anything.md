@@ -38,7 +38,9 @@
 <h1>Week final</h1>
 
 <p>view properties added to market in last 7 days working</p>
-<p></p>
+<p>refactored code and jsp so agents can only manage their properties</p>
+<p>added photo when agent logs in</p>
+<p>added sessiosn so i can call the agent whops logged in servlets for the add </p>
 <h1>Unique feature</h1>
 <p>I added a morgage calcularor where the user can enter how much the morgage will be, the percentage of the morgage interest and how much months it will be for and it will display how much the user will pay per month, i used javascript for this </p>
 <p>i added a snapshot feature where the user can take a picture of the webpage and it was save onto their desktop with the date and time attached to the image title, i did this by creating a scriptlet in the header.jsp and using several imports, the rectangle, robot, date, calendar, buffered image,SimpleDateFormat, imageio and  toolkit</p>
