@@ -7,6 +7,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import javax.security.auth.Subject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import model.Agents;
 import model.AgentsDB;
 import static model.AgentsDB.getAgentByUserName;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.UnavailableSecurityManagerException;
 import org.apache.shiro.authc.AuthenticationException;
@@ -27,8 +30,6 @@ import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 
-
-
 /**
  *
  * @author K00203657
@@ -36,20 +37,29 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 @WebServlet(name = "login", urlPatterns = {"/login"})
 public class login extends HttpServlet {
 
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-  
-  Agents CurrentAgent = null;
+
+ 
+        Agents CurrentAgent = null;
         String nextPage;
 
         try {
-            
+
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-
-            UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+            
+               String encpassword= DigestUtils.md5Hex(password);
+      
+//            MessageDigest md = MessageDigest.getInstance("MD5");
+//            byte[] hashInBytes = md.digest(password.getBytes(StandardCharsets.UTF_8));
+//
+//            StringBuilder sb = new StringBuilder();
+//            for (byte b : hashInBytes) {
+//                sb.append(String.format("%02x", b));
+//            }
+            UsernamePasswordToken token = new UsernamePasswordToken(username, encpassword);
             token.setRememberMe(true);
 
             org.apache.shiro.subject.Subject currentUser = SecurityUtils.getSubject();
@@ -102,10 +112,8 @@ public class login extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher(nextPage);
             rd.forward(request, response);
         }
-        
-        
-}
-    
+
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
