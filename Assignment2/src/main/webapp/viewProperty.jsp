@@ -74,7 +74,7 @@
                           
                              <h3>Property Vendor </h3>
                         <p>${property.vendorid}</p>
-
+                             <shiro:guest>
                              <c:choose>
                             <c:when test="${!propertyInfavourites}">
                             <div class="info">
@@ -89,6 +89,7 @@
                                     </form>
                                 </c:otherwise>
                             </c:choose>
+                                     </shiro:guest>
                     </div>
 
         </div>
