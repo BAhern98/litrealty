@@ -41,7 +41,12 @@
                     <li><a href="displayFavourites" style="color: white;">Favourites</a></li>
                     <li><a href="MortgageCalculator.jsp" style="color: white;">Mortgage Calculator</a></li>
                     <li><a href="Login.jsp" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Agent Login</a></li>
-                    </shiro:guest>
+                    <div>
+                    <form action="#"method="post">
+
+                        <input type="hidden"name="take"id="take"value="take_photo"/><input type="submit" value="Screen Shot"/>
+                </div>
+                </shiro:guest>
                     <shiro:user>
                      <li><a href="ManageAgentProperties" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Manage Your Properties</a></li>
                     <li><a href="displayVendors" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> View Vendors</a></li>
@@ -49,11 +54,7 @@
                     <li><a href="logout" style="color: white;"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </shiro:user>
            
-                <div>
-                    <form action="#"method="post">
-
-                        <input type="hidden"name="take"id="take"value="take_photo"/><input type="submit" value="Screen Shot"/>
-                </div>
+               
                              <shiro:user>
                     <div class="profile">
                         <p>Logged in as: <shiro:principal/></p>
