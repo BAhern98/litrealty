@@ -51,3 +51,11 @@
 <p>i added a snapshot feature where the user can take a picture of the webpage and it was save onto their desktop with the date and time attached to the image title, i did this by creating a scriptlet in the header.jsp and using several imports, the rectangle, robot, date, calendar, buffered image,SimpleDateFormat, imageio and  toolkit, customers can use this for documenting the mortague results calculator that i added or emailing puctures of properties or property data to friend and family </p>
 <br>
 <p>you can find the snapshot feature in a button in the header and the mortague calulator link in the header aswell</p>
+<br>
+<h1>Passwords</h1>
+<p>user name         password</p>
+<p>Sue.Roberts         suepass</p>
+<p>Chris.Clarkson        chrispass</p>
+<p>Natasha.Watkins         natashapass</p>
+<p>Laura.Blain         laurapass</p>
+<p>Dave.Lindale         davepass</p>
