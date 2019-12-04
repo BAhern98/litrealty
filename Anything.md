@@ -44,7 +44,7 @@
 <p>archiving function now works, properties are now added to the archive table upon deleted</p>
 <p>encrypted database</p>
 <p>edit now working except for the photos</p>
-<p>add now downing except for the photos</p>
+<p>add now working except for the photos</p>
 <h1>Unique feature</h1>
 <p>I added a morgage calcularor where the user can enter how much the morgage will be, the percentage of the morgage interest and how much months it will be for and it will display how much the user will pay per month, i used javascript for this , its handy for clients who sont want to do number crunching on a calculator</p>
 <br>
