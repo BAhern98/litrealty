@@ -1,4 +1,7 @@
+<h1>NB</h1>
 
+<p>clean and build project to add dependencies too it </p>
+<p>run project from Login.jsp or the displayAll servlet</p>
 <h1>Week 1</h1>
 
 <p>display properties working,</p>
@@ -49,7 +52,7 @@
 <p>I added a morgage calcularor where the user can enter how much the morgage will be, the percentage of the morgage interest and how much months it will be for and it will display how much the user will pay per month, i used javascript for this , its handy for clients who sont want to do number crunching on a calculator</p>
 <br>
 <p>i added a snapshot feature where the user can take a picture of the webpage and it was save onto their desktop with the date and time attached to the image title, i did this by creating a scriptlet in the header.jsp and using several imports, the rectangle, robot, date, calendar, buffered image,SimpleDateFormat, imageio and  toolkit, customers can use this for documenting the mortague results calculator that i added or emailing puctures of properties or property data to friend and family </p>
-<p>clean and build project to add dependencies too it </p>
+
 <br>
 <p>you can find the snapshot feature in a button in the header and the mortague calulator link in the header aswell</p>
 <br>
@@ -60,3 +63,5 @@
 <p>Natasha.Watkins         natashapass</p>
 <p>Laura.Blain         laurapass</p>
 <p>Dave.Lindale         davepass</p>
+
+
